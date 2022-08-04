@@ -1,5 +1,7 @@
 name: "JS Actions"
-on: [push]
+on: 
+  pull_request:
+    types: [labeled]
 
 jobs:
   action:
@@ -12,3 +14,5 @@ jobs:
           first-greeting: "Learning Lab User"
           second-greeting: "Amanda and her sister"
           third-greeting:  "Caroline" 
+      - name: "buhahaha"
+        uses: ./.github/actions/joke-action
