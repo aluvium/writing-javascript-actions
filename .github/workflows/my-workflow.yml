@@ -22,4 +22,4 @@ jobs:
         with:
           repo-token: ${{secrets.GITHUB_TOKEN}}
        #  joke: ${{steps.buhah.outputs.joke-output}}
-          joke: ${{steps.buhah}}
+       #  joke: ${{steps.buhah}}
