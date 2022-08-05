@@ -15,12 +15,12 @@ jobs:
           first-greeting: "Learning Lab User"
           second-greeting: "Amanda and her sister"
           third-greeting:  "Caroline" 
-      - name: buhah
+      - name: jokes
         uses: ./.github/actions/joke-action
       - name: "create-issue"
         uses: ./.github/actions/issue-maker
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           issue-title: "** RANDOM title **"
-          joke:  ${{ secrets.GITHUB_TOKEN }}
+          joke:  ${{ steps.jokes.outputs.joke-output }}
 
