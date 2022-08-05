@@ -22,6 +22,5 @@ jobs:
         with:
           repo-token: ${{secrets.GITHUB_TOKEN}}
           issue-title: $RANDOM title
-          joke: "some joke for fun"
-       #   joke: ${{ steps.buhah.outputs.joke-output }}
-       #  joke: ${{steps.buhah}}
+          joke: ${{steps.buhah.joke-output}}
+
