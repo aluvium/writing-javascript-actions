@@ -10,23 +10,25 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: "hello-action"
-    job2:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: ./.github/actions/hello-world
+          uses: ./.github/actions/hello-world
           with:
             first-greeting: "Learning Lab User"
             second-greeting: "Amanda and her sister"
             third-greeting:  "Caroline"
+          
+    job2:
+      runs-on: ubuntu-latest
+      steps:
+       - name: jokes
+         uses: ./.github/actions/joke-action
+         
     job3:
       runs-on: ubuntu-latest
       steps:
-        - name: jokes
-          uses: ./.github/actions/joke-action
         - name: "create-issue"
           uses: ./.github/actions/issue-maker
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
             issue-title: "** RANDOM title **"
-            joke: echo ${{ steps.jokes.outputs.joke-output }}
+            joke: echo ${{ needs.job2.outputs.joke-output }}
 
