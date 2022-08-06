@@ -23,6 +23,7 @@ jobs:
        - name: jokes
          uses: ./.github/actions/joke-action
          
+         
     job3:
       runs-on: ubuntu-latest
       needs: job2
@@ -33,5 +34,6 @@ jobs:
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
             issue-title: "** RANDOM title **"
-            joke: ${{ steps.jokes.joke-output }}
+            joke: ${{ needs.job2.steps.jokes }}
+        - run: job2
 
