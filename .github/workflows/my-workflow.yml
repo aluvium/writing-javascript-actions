@@ -33,5 +33,5 @@ jobs:
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
             issue-title: "** RANDOM title **"
-            joke: echo ${{ job2.steps.jokes.joke-output }}
+            joke: ${{ steps.jokes.joke-output }}
 
