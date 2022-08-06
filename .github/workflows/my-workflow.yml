@@ -20,8 +20,8 @@ jobs:
       runs-on: ubuntu-latest
       outputs:
         out1: ${{ steps.joke }}
-        out2: ${{ steps:joke.outputs.joke-output}}
-        out3: ${{ steps:joke.outputs.joke-output}}
+        out2: ${{ steps.joke.outputs.joke-output}}
+        out3: ${{ steps.joke.outputs.joke-output}}
       steps:
        - uses: actions/checkout@v1
        - id: joke
