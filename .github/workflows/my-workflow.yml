@@ -19,12 +19,14 @@ jobs:
     job2:
       runs-on: ubuntu-latest
       steps:
+       - uses: actions/checkout@v1
        - name: jokes
          uses: ./.github/actions/joke-action
          
     job3:
       runs-on: ubuntu-latest
       steps:
+        - uses: actions/checkout@v1
         - name: "create-issue"
           uses: ./.github/actions/issue-maker
           with:
