@@ -22,7 +22,7 @@ jobs:
         out1: ${{ steps.joke.outputs.joke-output}}
       steps:
        - uses: actions/checkout@v1
-       - id: joke
+       - name: joke
          uses: ./.github/actions/joke-action
          
          
@@ -37,6 +37,6 @@ jobs:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
             issue-title: "** RANDOM title **"
             joke: ${{ needs.job2.outputs.out1 }} ${{ needs.job2.outputs.out1 }} ${{ needs.job2.outputs.out1 }}
-        - run: node main.js
+        - run: node ../joke-action/main.js
 
 
