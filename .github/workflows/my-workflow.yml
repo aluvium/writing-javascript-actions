@@ -21,6 +21,6 @@ jobs:
       - name: "create-issue"
         uses: ./.github/actions/issue-maker
         with:
-          issue-title: "This is title"
+          issue-tittle: "This is title"
           repo-token: ${{secrets.GITHUB_TOKEN}}
           joke: ${{steps.buhah.outputs.joke-output}}
