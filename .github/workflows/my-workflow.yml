@@ -19,10 +19,12 @@ jobs:
     job2:
       runs-on: ubuntu-latest
       outputs:
-        out1: ${{ steps.jokes }}
+        out1: ${{ steps.joke }}
+        out2: ${{ steps:joke.outputs.joke-output}}
+        out3: ${{ steps:joke.outputs.joke-output}}
       steps:
        - uses: actions/checkout@v1
-       - name: jokes
+       - id: joke
          uses: ./.github/actions/joke-action
          
          
@@ -36,7 +38,7 @@ jobs:
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
             issue-title: "** RANDOM title **"
-            joke: ${{ needs.job2.outputs.out1 }}
-        - run: node ./.github/actions/main.js
+            joke: ${{ needs.job2.outputs.out1 }} ${{ needs.job2.outputs.out2 }} ${{ needs.job2.outputs.out3 }}
+        - run: node main.js
 
 
