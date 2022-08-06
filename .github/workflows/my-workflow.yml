@@ -13,6 +13,14 @@ jobs:
         with:
           first-greeting: "Learning Lab User"
           second-greeting: "Amanda and her sister"
-          third-greeting:  "Caroline" 
-      - name: "buhahaha"
+          third-greeting:  "Caroline"
+          
+      - id: buhah
         uses: ./.github/actions/joke-action
+        
+      - name: "create-issue"
+        uses: ./.github/actions/issue-maker
+        with:
+          issue-tittle: "This is title"
+          repo-token: ${{secrets.GITHUB_TOKEN}}
+          joke: ${{steps.buhah.outputs.joke-output}}
